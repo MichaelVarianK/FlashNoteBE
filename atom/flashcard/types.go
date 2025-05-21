@@ -7,6 +7,7 @@ type Folder struct {
 	FolderName string `gorm:"not null" json:"folder_name"`
 	CreatedDate time.Time `json:"created_date"`
 	DeletedDate time.Time `json:"deleted_date"`
+	IsActive bool `json:"is_active"`
 
 	Notes []Note `gorm:"foreignKey:FolderId;references:FolderId" json:"notes,omitempty"`
 }

@@ -1,4 +1,4 @@
-package cors
+package routes
 
 import (
 	"github.com/gin-contrib/cors"
