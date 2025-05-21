@@ -6,6 +6,8 @@ import (
 	atom_folder "github.com/KelXR/FlashNoteBE/atom/folder"
 	atom_note "github.com/KelXR/FlashNoteBE/atom/note"
 	"github.com/KelXR/FlashNoteBE/config"
+	"github.com/KelXR/FlashNoteBE/routes"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -18,4 +20,10 @@ func main() {
 		&atom_flashcard.Flashcard{},
 		&atom_flashcard.Question{}, 
 	)
+
+	router := gin.Default()
+	router.Use(routes.CorsMiddleware())
+	routes.FolderRoute(router)
+	routes.NoteRoute(router)
+	router.Run(":8080")
 }
